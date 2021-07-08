@@ -73,11 +73,6 @@ $(IP_LIBRARY_ROOT)/fwft_fifos/sc_fifo/hdl/generic_fifo_sc_a.v \
 $(DATAPATH_ROOT)/hdl/muladdsub.v 
 
 
-# if we change how this project is verilated, this will change
-Q_ENGINE_VERILATOR_TOP=q_engine
-
-
-
 
 RISCV_C_INC_PATH=$(RVS_ROOT)/inc
 LD_STANDARD_PATH=$(RVS_ROOT)/ld/ld_standard

@@ -76,5 +76,4 @@ CS20_NO_RISCV=1
 EXTRA_CPP_FILES=$(RISCV_BASEBAND_REPO)/c/inc/feedback_bus.c
 
 # Required to set this before including this file
-VERILATOR_TEST_DIR=.
 include $(HW_ROOT)/make_include/tb_common.mk
