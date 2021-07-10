@@ -53,7 +53,7 @@ VER_SOURCES= $(HIGGS_TB_ALL_VERILOG) $(Q_ENGINE_ALL_VERILOG) $(D_ENGINE_ALL_VERI
 
 EXTRA_CPP_FILES?=""
 # EXTRA_CPP_FILES+=$(RISCV_BASEBAND_REPO)/c/inc/feedback_bus.c
-EXTRA_CPP_FILES+=$(RISCV_BASEBAND_REPO)/c/inc/random.c
+EXTRA_CPP_FILES+=$(RVS_ROOT)/inc/random.c
 # EXTRA_CPP_FILES+=$(RISCV_BASEBAND_REPO)/c/inc/schedule.c
 # EXTRA_CPP_FILES+=$(SMODEM_REPO)/soapy/src/common/FileUtils.cpp
 # EXTRA_CPP_FILES+=$(SMODEM_REPO)/soapy/src/common/CmdRunner.cpp
@@ -110,7 +110,7 @@ ADDCFLAGS += -LDFLAGS -pthread
 ADDCFLAGS += -CFLAGS -I../$(VER_CPP_INCLUDE_PATH)
 ADDCFLAGS += -CFLAGS -I../$(RISCV_BASEBAND_REPO)/verilator/inc
 # it may seem weird but we can include the same file from both the TB and from the Riscv itself (this include path is for the TB's sake)
-ADDCFLAGS += -CFLAGS -I../$(RISCV_BASEBAND_REPO)/c/inc
+ADDCFLAGS += -CFLAGS -I../$(RVS_ROOT)/inc
 ADDCFLAGS += -CFLAGS -I../$(SMODEM_REPO)/soapy/src
 ADDCFLAGS += -CFLAGS -I../$(SMODEM_REPO)/soapy/src/common
 ADDCFLAGS += -CFLAGS -I../$(SMODEM_REPO)/soapy/src/driver
@@ -170,7 +170,7 @@ vclean:
 # if they are overridden
 # cd $(HIGGS_ROOT) && make -j22 vallfpga
 compilehex:
-	make -C $(HIGGS_ROOT) vallfpga
+# 	make -C $(HIGGS_ROOT) vallfpga
 	$(call invoke_c_override_submake)
 
 gensigs:
@@ -289,3 +289,8 @@ all2:
 all3:
 	@echo $(BOARD_TB_TOP)
 	@echo $(VER_BINARY)
+
+
+all4:
+# 	@echo $(EXTRA_CPP_FILES)
+	@echo $(CPP_TB_FILES)
