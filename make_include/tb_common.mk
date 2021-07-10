@@ -18,6 +18,7 @@ include $(HW_ROOT)/make_include/verilog_paths.mk
 # Q_ENGINE_VERILATOR_TOP=q_engine
 
 BOARD_TB_TOP=tb_higgs_top
+VER_BINARY = V$(BOARD_TB_TOP)
 
 VERILATOR_TEST_DIR?=.
 
@@ -37,6 +38,7 @@ VER_INCLUDE_DIRS=\
 -I../../hdl  \
 -I. \
 -I$(VER_CPP_INCLUDE_PATH) \
+$(BOARD_INCLUDE_PATHS)
 
 VER_TOP=--top-module $(BOARD_TB_TOP) +define+VERILATE +define+VERILATE_DEF +define+LOAD_VMEM
 
@@ -74,7 +76,7 @@ CPP_TB_FILES+= $(EXTRA_CPP_FILES)
 CPP_TB_FILES+= $(wildcard $(VER_CPP_INCLUDE_PATH)/*.cpp)
 
 C_SRC = ./c/src
-VER_BINARY = Vtb_higgs_top
+
 
 
 # try:
@@ -168,7 +170,7 @@ vclean:
 # if they are overridden
 # cd $(HIGGS_ROOT) && make -j22 vallfpga
 compilehex:
-# 	make -C $(HIGGS_ROOT) vallfpga
+	make -C $(HIGGS_ROOT) vallfpga
 	$(call invoke_c_override_submake)
 
 gensigs:
@@ -283,3 +285,7 @@ all2:
 # 	@cat $(CRT_STANDARD_PATH)
 # 	@cat $(LD_STANDARD_PATH)
 # LD_STANDARD_PATH
+
+all3:
+	@echo $(BOARD_TB_TOP)
+	@echo $(VER_BINARY)

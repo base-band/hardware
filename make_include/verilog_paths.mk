@@ -74,6 +74,94 @@ $(DATAPATH_ROOT)/hdl/muladdsub.v
 
 
 
+BOARD_TB_TOP_ONLY=\
+$(HW_ROOT)/hdl/top/sim/tb_higgs_top.sv
+
+# use this when you want to include your own top when using higgs
+BOARD_TB_NO_TOP_VERILOG=\
+$(IP_LIBRARY_ROOT)/interfaces/cmd_interface/hdl/intf_cmd.sv \
+$(IP_LIBRARY_ROOT)/interfaces/cmd_interface/hdl/cmd_master_example.sv \
+$(IP_LIBRARY_ROOT)/interfaces/cmd_interface/hdl/cmd_slave_example.sv \
+$(HW_ROOT)/hdl/top/cs22/hdl/cs22_top.sv \
+$(HW_ROOT)/hdl/top/eth/hdl/eth_top.sv \
+$(HW_ROOT)/hdl/top/cfg/hdl/cfg_top.sv \
+$(IP_LIBRARY_ROOT)/common/core_top.sv \
+$(IP_LIBRARY_ROOT)/common/vex_machine_top.v \
+$(IP_LIBRARY_ROOT)/common/vex_machine_top_gutted.v \
+$(IP_LIBRARY_ROOT)/common/vex_machine_top_d_engine.v \
+$(IP_LIBRARY_ROOT)/common/q_engine_gutted.v \
+$(IP_LIBRARY_ROOT)/common/core_reset.sv \
+$(IP_LIBRARY_ROOT)/common/cmd_cdc.sv \
+$(IP_LIBRARY_ROOT)/eb2a/eb2a_ctrl.v \
+$(IP_LIBRARY_ROOT)/eb2a/eb2a_data.v \
+$(IP_LIBRARY_ROOT)/eb2a/eb2a.v \
+$(IP_LIBRARY_ROOT)/fb_eq_join/rtl/fb_eq_join.sv \
+$(IP_LIBRARY_ROOT)/fb_eq_split/rtl/fb_eq_split.sv \
+$(IP_LIBRARY_ROOT)/mapper_mover/mapper_mover.sv \
+$(IP_LIBRARY_ROOT)/mapper_mover/qam8_mapper.sv \
+$(IP_LIBRARY_ROOT)/mapper_mover/qam16_mapper.sv \
+$(IP_LIBRARY_ROOT)/mapper_mover/qam32_mapper.sv \
+$(IP_LIBRARY_ROOT)/mapper_mover/qam64_mapper.sv \
+$(IP_LIBRARY_ROOT)/mapper_mover/mapper_memory.sv \
+$(IP_LIBRARY_ROOT)/demapper/demapper.sv \
+$(IP_LIBRARY_ROOT)/width_convert/width_32_8.sv \
+$(IP_LIBRARY_ROOT)/width_convert/width_8_32.sv \
+# $(IP_LIBRARY_ROOT)/off_board/half_cdc.sv \
+# $(HIGGS_ROOT)/fpgas/grav/eth/hdl/eth_mega_wrapper.sv \
+# $(HIGGS_ROOT)/fpgas/grav/eth/hdl/fifo_cdc.sv \
+# $(HIGGS_ROOT)/fpgas/grav/eth/hdl/mac_cfg.sv \
+# $(HIGGS_ROOT)/fpgas/grav/eth/hdl/eth_rx_wrapper.sv \
+# $(IP_LIBRARY_ROOT)/lattice_support/gbit_mac/modules/arp_reply/hdl/arp_reply.sv \
+# $(IP_LIBRARY_ROOT)/lattice_support/gbit_mac/modules/eth_frame_router/hdl/eth_frame_router.sv \
+# $(IP_LIBRARY_ROOT)/lattice_support/gbit_mac/modules/ipv4_pkt_router/hdl/ipv4_pkt_router.sv \
+# $(IP_LIBRARY_ROOT)/lattice_support/gbit_mac/modules/udp_pkt_router/hdl/udp_pkt_router.sv \
+# $(IP_LIBRARY_ROOT)/lattice_support/gbit_mac/modules/mac_tx_arbiter/hdl/mac_tx_arbiter.sv \
+# $(IP_LIBRARY_ROOT)/lattice_support/gbit_mac/modules/udp_rx_stream_buffer/hdl/udp_rx_stream_buffer.sv \
+# $(IP_LIBRARY_ROOT)/lattice_support/gbit_mac/modules/udp_packetizer/hdl/udp_packetizer.sv \
+# $(IP_LIBRARY_ROOT)/lattice_support/fifos/pmi_fifo_sc_fwft_v1_0/hdl/pmi_fifo_sc_fwft_v1_0.sv \
+# $(IP_LIBRARY_ROOT)/lattice_support/fifos/pmi_fifo_dc_fwft_v1_0/hdl/pmi_fifo_dc_fwft_v1_0.sv \
+# $(IP_LIBRARY_ROOT)/mib_bus/hdl/mib_master.sv \
+# $(IP_LIBRARY_ROOT)/mib_bus/hdl/mib_slave.sv \
+# $(IP_LIBRARY_ROOT)/mib_bus/hdl/mib_master_wrapper.sv \
+# $(IP_LIBRARY_ROOT)/mib_bus/hdl/mib_slave_wrapper.sv \
+# $(IP_LIBRARY_ROOT)/graviton_ti_cfg/hdl/graviton_ti_cfg.sv \
+# $(IP_LIBRARY_ROOT)/graviton_ti_cfg/hdl/ti_sif.sv \
+# $(IP_LIBRARY_ROOT)/n25q_qspi_reader/hdl/n25q_qspi_reader.sv \
+# $(IP_LIBRARY_ROOT)/ecp5_slave_serial_programmer/hdl/ecp5_slave_serial_programmer.sv \
+# $(IP_LIBRARY_ROOT)/upconverter/hdl/duc_fixed_dds.sv \
+# $(IP_LIBRARY_ROOT)/upconverter/hdl/duc_hb_cascade.sv \
+# $(IP_LIBRARY_ROOT)/upconverter/hdl/duc_hb_interp_fir_h0.sv \
+# $(IP_LIBRARY_ROOT)/upconverter/hdl/duc_skid.sv \
+# $(IP_LIBRARY_ROOT)/upconverter/hdl/upconverter.sv \
+# $(IP_LIBRARY_ROOT)/downconverter/hdl/downconverter.sv \
+# $(IP_LIBRARY_ROOT)/downconverter/hdl/fixed_ddsx2.sv \
+# $(IP_LIBRARY_ROOT)/downconverter/hdl/ddc_hb_cascade.sv \
+# $(IP_LIBRARY_ROOT)/downconverter/hdl/ddc_hb_decim_fir_h1.sv \
+# $(IP_LIBRARY_ROOT)/downconverter/hdl/ddc_hb_decim_fir_h2.sv \
+# $(IP_LIBRARY_ROOT)/downconverter/hdl/ddc_hb_decim_firx2_h0.sv \
+
+# $(HIGGS_ROOT)/fpgas/packages/higgs_sdr_global_pkg.sv \
+
+
+
+
+
+
+
+
+# use this when you want the default paths for all files in higgs
+HIGGS_TB_ALL_VERILOG=\
+$(BOARD_TB_TOP_ONLY) \
+$(BOARD_TB_NO_TOP_VERILOG)
+
+# $(DISABLE_TRACING_PATHS) \
+
+
+BOARD_INCLUDE_PATHS=\
+-I$(HW_ROOT)/hdl/top/sim  \
+-I$(IP_LIBRARY_ROOT)/common  \
+
+
 RISCV_C_INC_PATH=$(RVS_ROOT)/inc
 LD_STANDARD_PATH=$(RVS_ROOT)/ld/ld_standard
 CRT_STANDARD_PATH=$(RVS_ROOT)/src/asm_init/crt_standard.S

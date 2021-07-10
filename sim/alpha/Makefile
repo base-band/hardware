@@ -22,7 +22,7 @@ HW_ROOT=../..
 # RX FPGAs
 # OVERRIDE_CS31_C=1
 # OVERRIDE_CS32_C=1
-OVERRIDE_CS22_C=1
+# OVERRIDE_CS22_C=1
 # OVERRIDE_CS21_C=1
 # OVERRIDE_CS20_C=1
 # OVERRIDE_ETH_C=1
@@ -30,17 +30,17 @@ OVERRIDE_CS22_C=1
 # Set as many of these as you want, setting to 0 does not disable, you must
 # comment
 # TX FPGAs
-TB_USE_CS11=1
-TB_USE_CS12=1
-TB_USE_CS02=1
-TB_USE_CS01=1
+# TB_USE_CS11=1
+# TB_USE_CS12=1
+# TB_USE_CS02=1
+# TB_USE_CS01=1
 # TB_USE_DAC=1
 # RX FPGAs
-TB_USE_CS31=1
-TB_USE_CS32=1
+# TB_USE_CS31=1
+# TB_USE_CS32=1
 TB_USE_CS22=1
-TB_USE_CS21=1
-TB_USE_CS20=1
+# TB_USE_CS21=1
+# TB_USE_CS20=1
 
 # THESE DONT WORK
 # These are only respected when under verilator. If OVERRIDE above is not set
@@ -62,16 +62,16 @@ TB_USE_CS20=1
 # For example this could allow a simulation with only ETH, CS11, CS12, CS02,
 # CS01 but still allow CS01 to send ringbus messages back to ETH
 # TX FPGAs
-CS11_NO_RISCV=1
-CS12_NO_RISCV=1
-CS02_NO_RISCV=1
-CS01_NO_RISCV=1
+# CS11_NO_RISCV=1
+# CS12_NO_RISCV=1
+# CS02_NO_RISCV=1
+# CS01_NO_RISCV=1
 # RX FPGAs
-CS31_NO_RISCV=1
-CS32_NO_RISCV=1
+# CS31_NO_RISCV=1
+# CS32_NO_RISCV=1
 # CS22_NO_RISCV=1
-CS21_NO_RISCV=1
-CS20_NO_RISCV=1
+# CS21_NO_RISCV=1
+# CS20_NO_RISCV=1
 
 EXTRA_CPP_FILES=$(RISCV_BASEBAND_REPO)/c/inc/feedback_bus.c
 
