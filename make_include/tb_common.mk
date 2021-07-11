@@ -26,11 +26,11 @@ include $(HW_ROOT)/make_include/sim_verilator.mk
 
 
 
-VER_CPP_INCLUDE_PATH=HW_ROOT/csrc
+VER_CPP_INCLUDE_PATH=$(HW_ROOT)/csrc
 
 
 # path should be relative to where this makefile is (repo root)
-VER_CPP_INCLUDE_PATH=../inc
+# VER_CPP_INCLUDE_PATH=../inc
 
 VER_HDL_PATH=../inc
 
@@ -108,13 +108,13 @@ ADDCFLAGS += -LDFLAGS -pthread
 
 # path is relative to obj_dir (So some variables will have a ../ prepended)
 ADDCFLAGS += -CFLAGS -I../$(VER_CPP_INCLUDE_PATH)
-ADDCFLAGS += -CFLAGS -I../$(RISCV_BASEBAND_REPO)/verilator/inc
+# ADDCFLAGS += -CFLAGS -I../$(RISCV_BASEBAND_REPO)/verilator/inc
 # it may seem weird but we can include the same file from both the TB and from the Riscv itself (this include path is for the TB's sake)
 ADDCFLAGS += -CFLAGS -I../$(RVS_ROOT)/inc
-ADDCFLAGS += -CFLAGS -I../$(SMODEM_REPO)/soapy/src
-ADDCFLAGS += -CFLAGS -I../$(SMODEM_REPO)/soapy/src/common
-ADDCFLAGS += -CFLAGS -I../$(SMODEM_REPO)/soapy/src/driver
-ADDCFLAGS += -CFLAGS -I../$(SMODEM_REPO)/soapy/src/3rd/schifra
+# ADDCFLAGS += -CFLAGS -I../$(SMODEM_REPO)/soapy/src
+# ADDCFLAGS += -CFLAGS -I../$(SMODEM_REPO)/soapy/src/common
+# ADDCFLAGS += -CFLAGS -I../$(SMODEM_REPO)/soapy/src/driver
+# ADDCFLAGS += -CFLAGS -I../$(SMODEM_REPO)/soapy/src/3rd/schifra
 ADDCFLAGS += -CFLAGS -I/usr/local/share/verilator/include
 
 
