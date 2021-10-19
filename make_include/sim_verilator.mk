@@ -145,10 +145,10 @@ define invoke_c_override_clean
 $(foreach path,$(VERILATOR_C_SUBMAKE_PATHS),$(call override_c_submake_clean,$(path)))
 endef
 
-VERILATOR_C_OVERRIDE_DEFINES+=+define+QAM8_MIF=\"$(HIGGS_TEST_DIR)/../../../fpgas/common/modules/mapper_mover/qam8.mif\"
-VERILATOR_C_OVERRIDE_DEFINES+=+define+QAM16_MIF=\"$(HIGGS_TEST_DIR)/../../../fpgas/common/modules/mapper_mover/qam16.mif\"
-VERILATOR_C_OVERRIDE_DEFINES+=+define+QAM32_MIF=\"$(HIGGS_TEST_DIR)/../../../fpgas/common/modules/mapper_mover/qam32.mif\"
-VERILATOR_C_OVERRIDE_DEFINES+=+define+QAM64_MIF=\"$(HIGGS_TEST_DIR)/../../../fpgas/common/modules/mapper_mover/qam64.mif\"
+VERILATOR_C_OVERRIDE_DEFINES+=+define+QAM8_MIF=\"$(IP_LIBRARY_ROOT)/mapper_mover/qam8.mif\"
+VERILATOR_C_OVERRIDE_DEFINES+=+define+QAM16_MIF=\"$(IP_LIBRARY_ROOT)/mapper_mover/qam16.mif\"
+VERILATOR_C_OVERRIDE_DEFINES+=+define+QAM32_MIF=\"$(IP_LIBRARY_ROOT)/mapper_mover/qam32.mif\"
+VERILATOR_C_OVERRIDE_DEFINES+=+define+QAM64_MIF=\"$(IP_LIBRARY_ROOT)/mapper_mover/qam64.mif\"
 
 
 # FOR UPCONVERTER

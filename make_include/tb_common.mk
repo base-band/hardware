@@ -55,7 +55,9 @@ EXTRA_CPP_FILES?=""
 # EXTRA_CPP_FILES+=$(RISCV_BASEBAND_REPO)/c/inc/feedback_bus.c
 EXTRA_CPP_FILES+=$(RVS_ROOT)/inc/random.c
 # EXTRA_CPP_FILES+=$(RISCV_BASEBAND_REPO)/c/inc/schedule.c
-# EXTRA_CPP_FILES+=$(SMODEM_REPO)/soapy/src/common/FileUtils.cpp
+EXTRA_CPP_FILES+=$(HW_ROOT)/csrc/FileUtils.cpp
+EXTRA_CPP_FILES+=$(HW_ROOT)/csrc/convert.cpp
+EXTRA_CPP_FILES+=$(HW_ROOT)/csrc/CmdRunner.cpp
 # EXTRA_CPP_FILES+=$(SMODEM_REPO)/soapy/src/common/CmdRunner.cpp
 # EXTRA_CPP_FILES+=$(SMODEM_REPO)/soapy/src/common/convert.cpp
 # EXTRA_CPP_FILES+=$(SMODEM_REPO)/soapy/src/common/GenericOperator.cpp
@@ -133,7 +135,7 @@ endif
 
 
 
-.PHONY: all test compilehex run_only run verilate compile cleanall trun vall
+.PHONY: all test compilehex run_only run verilate compile cleanall trun runt vall
 .PHONY: test_dependencies no_clean_test no_clean_test_dependencies pre_work 
 .PHONY: test_post_check gensigs vall_subtree
 
@@ -178,6 +180,8 @@ gensigs:
 
 run_only:
 	./obj_dir/$(VER_BINARY)
+
+runt: run
 
 run: compile
 	./obj_dir/$(VER_BINARY)
@@ -257,8 +261,8 @@ show: wave_dump.vcd
 show1: wave_dump1.vcd
 	gtkwave $(realpath wave_dump1.vcd) --fastload dma_out.gtkw --giga &
 
-quick: compilehex verilator_parse_syms compile trun
-quickt: compilehex verilator_parse_syms compile run
+quick: compilehex verilator_parse_syms compile run
+quickt: compilehex verilator_parse_syms compile trun
 
 # these allow for parsing of the vmem names
 PARSE_VERILATOR_OBJ_DIR=obj_dir
@@ -294,3 +298,6 @@ all3:
 all4:
 # 	@echo $(EXTRA_CPP_FILES)
 	@echo $(CPP_TB_FILES)
+
+foo:
+	@echo $(HIGGS_TEST_DIR)

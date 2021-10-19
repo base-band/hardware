@@ -1,5 +1,3 @@
-#define VERILATE_TESTBENCH
-
 #include <stdlib.h>
 #include <iostream>
 #include <vector>
@@ -32,50 +30,17 @@ double sc_time_stamp () {
 }
 
 int main(int argc, char** argv, char** env) {
-
     STANDARD_TB_START();
 
     HiggsHelper<top_t>* t = new HiggsHelper<top_t>(top,&main_time,tfp);
 
-    srand(320948);
+    srand(42);
 
     preReset(top);
 
     t->reset(40);
 
     postReset(top);
-
-    std::vector<uint32_t> long_counter = get_counter(0,1024*2);
-
-    bool dump_hex = false;
-    int us = 280; // estimate for 64*3*1280 to go through  1962
-
-
-    for(unsigned int i = 0; i < us; i++) {
-        if(i == 80) {
-            t->inStreamAppend("cs22in", long_counter);
-        }
-        t->tick(500);
-    }
-
-    t->print_ringbus_out();
-
-    for(unsigned int i = 0; i < 0x50; i++) {
-        assert( VECTOR_FIND(t->outs["ringbusout"]->data, i) );
-    }
-
-    if (dump_hex) t->allStreamDump();
-
-    std::cout << "All Tests Passed\n";
-
-    // Final model cleanup
-    top->final();
-
-    // Close trace if opened
-    if (tfp) { tfp->close(); }
-
-    // Destroy model
-    delete top; top = NULL;
-
+    
     exit(0);
 }
