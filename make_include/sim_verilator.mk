@@ -40,28 +40,28 @@ endef # don't remove whitespace before this line
 
 define verilator_c_override =
 ifdef OVERRIDE_$(1)_C
-VERILATOR_C_OVERRIDE_DEFINES+=+define+$(1)_SCALAR_0=\"$(HIGGS_TEST_DIR)/override/fpgas/$(if $(filter-out ETH,$(1)),cs,grav)/$(shell echo $(1) | tr A-Z a-z)/build/tmp/scalar0.mif\"
-VERILATOR_C_OVERRIDE_DEFINES+=+define+$(1)_SCALAR_1=\"$(HIGGS_TEST_DIR)/override/fpgas/$(if $(filter-out ETH,$(1)),cs,grav)/$(shell echo $(1) | tr A-Z a-z)/build/tmp/scalar1.mif\"
-VERILATOR_C_OVERRIDE_DEFINES+=+define+$(1)_SCALAR_2=\"$(HIGGS_TEST_DIR)/override/fpgas/$(if $(filter-out ETH,$(1)),cs,grav)/$(shell echo $(1) | tr A-Z a-z)/build/tmp/scalar2.mif\"
-VERILATOR_C_OVERRIDE_DEFINES+=+define+$(1)_SCALAR_3=\"$(HIGGS_TEST_DIR)/override/fpgas/$(if $(filter-out ETH,$(1)),cs,grav)/$(shell echo $(1) | tr A-Z a-z)/build/tmp/scalar3.mif\"
-VERILATOR_C_OVERRIDE_DEFINES+=+define+$(1)_VMEM0=\"$(HIGGS_TEST_DIR)/override/fpgas/$(if $(filter-out ETH,$(1)),cs,grav)/$(shell echo $(1) | tr A-Z a-z)/build/tmp/vmem0.mif\"
-VERILATOR_C_OVERRIDE_DEFINES+=+define+$(1)_VMEM1=\"$(HIGGS_TEST_DIR)/override/fpgas/$(if $(filter-out ETH,$(1)),cs,grav)/$(shell echo $(1) | tr A-Z a-z)/build/tmp/vmem1.mif\"
-VERILATOR_C_OVERRIDE_DEFINES+=+define+$(1)_VMEM2=\"$(HIGGS_TEST_DIR)/override/fpgas/$(if $(filter-out ETH,$(1)),cs,grav)/$(shell echo $(1) | tr A-Z a-z)/build/tmp/vmem2.mif\"
-VERILATOR_C_OVERRIDE_DEFINES+=+define+$(1)_VMEM3=\"$(HIGGS_TEST_DIR)/override/fpgas/$(if $(filter-out ETH,$(1)),cs,grav)/$(shell echo $(1) | tr A-Z a-z)/build/tmp/vmem3.mif\"
-VERILATOR_C_OVERRIDE_DEFINES+=+define+$(1)_VMEM4=\"$(HIGGS_TEST_DIR)/override/fpgas/$(if $(filter-out ETH,$(1)),cs,grav)/$(shell echo $(1) | tr A-Z a-z)/build/tmp/vmem4.mif\"
-VERILATOR_C_OVERRIDE_DEFINES+=+define+$(1)_VMEM5=\"$(HIGGS_TEST_DIR)/override/fpgas/$(if $(filter-out ETH,$(1)),cs,grav)/$(shell echo $(1) | tr A-Z a-z)/build/tmp/vmem5.mif\"
-VERILATOR_C_OVERRIDE_DEFINES+=+define+$(1)_VMEM6=\"$(HIGGS_TEST_DIR)/override/fpgas/$(if $(filter-out ETH,$(1)),cs,grav)/$(shell echo $(1) | tr A-Z a-z)/build/tmp/vmem6.mif\"
-VERILATOR_C_OVERRIDE_DEFINES+=+define+$(1)_VMEM7=\"$(HIGGS_TEST_DIR)/override/fpgas/$(if $(filter-out ETH,$(1)),cs,grav)/$(shell echo $(1) | tr A-Z a-z)/build/tmp/vmem7.mif\"
-VERILATOR_C_OVERRIDE_DEFINES+=+define+$(1)_VMEM8=\"$(HIGGS_TEST_DIR)/override/fpgas/$(if $(filter-out ETH,$(1)),cs,grav)/$(shell echo $(1) | tr A-Z a-z)/build/tmp/vmem8.mif\"
-VERILATOR_C_OVERRIDE_DEFINES+=+define+$(1)_VMEM9=\"$(HIGGS_TEST_DIR)/override/fpgas/$(if $(filter-out ETH,$(1)),cs,grav)/$(shell echo $(1) | tr A-Z a-z)/build/tmp/vmem9.mif\"
-VERILATOR_C_OVERRIDE_DEFINES+=+define+$(1)_VMEM10=\"$(HIGGS_TEST_DIR)/override/fpgas/$(if $(filter-out ETH,$(1)),cs,grav)/$(shell echo $(1) | tr A-Z a-z)/build/tmp/vmem10.mif\"
-VERILATOR_C_OVERRIDE_DEFINES+=+define+$(1)_VMEM11=\"$(HIGGS_TEST_DIR)/override/fpgas/$(if $(filter-out ETH,$(1)),cs,grav)/$(shell echo $(1) | tr A-Z a-z)/build/tmp/vmem11.mif\"
-VERILATOR_C_OVERRIDE_DEFINES+=+define+$(1)_VMEM12=\"$(HIGGS_TEST_DIR)/override/fpgas/$(if $(filter-out ETH,$(1)),cs,grav)/$(shell echo $(1) | tr A-Z a-z)/build/tmp/vmem12.mif\"
-VERILATOR_C_OVERRIDE_DEFINES+=+define+$(1)_VMEM13=\"$(HIGGS_TEST_DIR)/override/fpgas/$(if $(filter-out ETH,$(1)),cs,grav)/$(shell echo $(1) | tr A-Z a-z)/build/tmp/vmem13.mif\"
-VERILATOR_C_OVERRIDE_DEFINES+=+define+$(1)_VMEM14=\"$(HIGGS_TEST_DIR)/override/fpgas/$(if $(filter-out ETH,$(1)),cs,grav)/$(shell echo $(1) | tr A-Z a-z)/build/tmp/vmem14.mif\"
-VERILATOR_C_OVERRIDE_DEFINES+=+define+$(1)_VMEM15=\"$(HIGGS_TEST_DIR)/override/fpgas/$(if $(filter-out ETH,$(1)),cs,grav)/$(shell echo $(1) | tr A-Z a-z)/build/tmp/vmem15.mif\"
+VERILATOR_C_OVERRIDE_DEFINES+=+define+$(1)_SCALAR_0=\"$(VERILATOR_TEST_DIR)/override/fpgas/$(if $(filter-out ETH,$(1)),cs,grav)/$(shell echo $(1) | tr A-Z a-z)/build/tmp/scalar0.mif\"
+VERILATOR_C_OVERRIDE_DEFINES+=+define+$(1)_SCALAR_1=\"$(VERILATOR_TEST_DIR)/override/fpgas/$(if $(filter-out ETH,$(1)),cs,grav)/$(shell echo $(1) | tr A-Z a-z)/build/tmp/scalar1.mif\"
+VERILATOR_C_OVERRIDE_DEFINES+=+define+$(1)_SCALAR_2=\"$(VERILATOR_TEST_DIR)/override/fpgas/$(if $(filter-out ETH,$(1)),cs,grav)/$(shell echo $(1) | tr A-Z a-z)/build/tmp/scalar2.mif\"
+VERILATOR_C_OVERRIDE_DEFINES+=+define+$(1)_SCALAR_3=\"$(VERILATOR_TEST_DIR)/override/fpgas/$(if $(filter-out ETH,$(1)),cs,grav)/$(shell echo $(1) | tr A-Z a-z)/build/tmp/scalar3.mif\"
+VERILATOR_C_OVERRIDE_DEFINES+=+define+$(1)_VMEM0=\"$(VERILATOR_TEST_DIR)/override/fpgas/$(if $(filter-out ETH,$(1)),cs,grav)/$(shell echo $(1) | tr A-Z a-z)/build/tmp/vmem0.mif\"
+VERILATOR_C_OVERRIDE_DEFINES+=+define+$(1)_VMEM1=\"$(VERILATOR_TEST_DIR)/override/fpgas/$(if $(filter-out ETH,$(1)),cs,grav)/$(shell echo $(1) | tr A-Z a-z)/build/tmp/vmem1.mif\"
+VERILATOR_C_OVERRIDE_DEFINES+=+define+$(1)_VMEM2=\"$(VERILATOR_TEST_DIR)/override/fpgas/$(if $(filter-out ETH,$(1)),cs,grav)/$(shell echo $(1) | tr A-Z a-z)/build/tmp/vmem2.mif\"
+VERILATOR_C_OVERRIDE_DEFINES+=+define+$(1)_VMEM3=\"$(VERILATOR_TEST_DIR)/override/fpgas/$(if $(filter-out ETH,$(1)),cs,grav)/$(shell echo $(1) | tr A-Z a-z)/build/tmp/vmem3.mif\"
+VERILATOR_C_OVERRIDE_DEFINES+=+define+$(1)_VMEM4=\"$(VERILATOR_TEST_DIR)/override/fpgas/$(if $(filter-out ETH,$(1)),cs,grav)/$(shell echo $(1) | tr A-Z a-z)/build/tmp/vmem4.mif\"
+VERILATOR_C_OVERRIDE_DEFINES+=+define+$(1)_VMEM5=\"$(VERILATOR_TEST_DIR)/override/fpgas/$(if $(filter-out ETH,$(1)),cs,grav)/$(shell echo $(1) | tr A-Z a-z)/build/tmp/vmem5.mif\"
+VERILATOR_C_OVERRIDE_DEFINES+=+define+$(1)_VMEM6=\"$(VERILATOR_TEST_DIR)/override/fpgas/$(if $(filter-out ETH,$(1)),cs,grav)/$(shell echo $(1) | tr A-Z a-z)/build/tmp/vmem6.mif\"
+VERILATOR_C_OVERRIDE_DEFINES+=+define+$(1)_VMEM7=\"$(VERILATOR_TEST_DIR)/override/fpgas/$(if $(filter-out ETH,$(1)),cs,grav)/$(shell echo $(1) | tr A-Z a-z)/build/tmp/vmem7.mif\"
+VERILATOR_C_OVERRIDE_DEFINES+=+define+$(1)_VMEM8=\"$(VERILATOR_TEST_DIR)/override/fpgas/$(if $(filter-out ETH,$(1)),cs,grav)/$(shell echo $(1) | tr A-Z a-z)/build/tmp/vmem8.mif\"
+VERILATOR_C_OVERRIDE_DEFINES+=+define+$(1)_VMEM9=\"$(VERILATOR_TEST_DIR)/override/fpgas/$(if $(filter-out ETH,$(1)),cs,grav)/$(shell echo $(1) | tr A-Z a-z)/build/tmp/vmem9.mif\"
+VERILATOR_C_OVERRIDE_DEFINES+=+define+$(1)_VMEM10=\"$(VERILATOR_TEST_DIR)/override/fpgas/$(if $(filter-out ETH,$(1)),cs,grav)/$(shell echo $(1) | tr A-Z a-z)/build/tmp/vmem10.mif\"
+VERILATOR_C_OVERRIDE_DEFINES+=+define+$(1)_VMEM11=\"$(VERILATOR_TEST_DIR)/override/fpgas/$(if $(filter-out ETH,$(1)),cs,grav)/$(shell echo $(1) | tr A-Z a-z)/build/tmp/vmem11.mif\"
+VERILATOR_C_OVERRIDE_DEFINES+=+define+$(1)_VMEM12=\"$(VERILATOR_TEST_DIR)/override/fpgas/$(if $(filter-out ETH,$(1)),cs,grav)/$(shell echo $(1) | tr A-Z a-z)/build/tmp/vmem12.mif\"
+VERILATOR_C_OVERRIDE_DEFINES+=+define+$(1)_VMEM13=\"$(VERILATOR_TEST_DIR)/override/fpgas/$(if $(filter-out ETH,$(1)),cs,grav)/$(shell echo $(1) | tr A-Z a-z)/build/tmp/vmem13.mif\"
+VERILATOR_C_OVERRIDE_DEFINES+=+define+$(1)_VMEM14=\"$(VERILATOR_TEST_DIR)/override/fpgas/$(if $(filter-out ETH,$(1)),cs,grav)/$(shell echo $(1) | tr A-Z a-z)/build/tmp/vmem14.mif\"
+VERILATOR_C_OVERRIDE_DEFINES+=+define+$(1)_VMEM15=\"$(VERILATOR_TEST_DIR)/override/fpgas/$(if $(filter-out ETH,$(1)),cs,grav)/$(shell echo $(1) | tr A-Z a-z)/build/tmp/vmem15.mif\"
 ifndef $(1)_NO_RISCV
-VERILATOR_C_SUBMAKE_PATHS+=$(HIGGS_TEST_DIR)/override/fpgas/$(if $(filter-out ETH,$(1)),cs,grav)/$(shell echo $(1) | tr A-Z a-z)/c/
+VERILATOR_C_SUBMAKE_PATHS+=$(VERILATOR_TEST_DIR)/override/fpgas/$(if $(filter-out ETH,$(1)),cs,grav)/$(shell echo $(1) | tr A-Z a-z)/c/
 endif
 endif
 endef

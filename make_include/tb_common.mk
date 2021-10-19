@@ -174,6 +174,8 @@ vclean:
 compilehex:
 # 	make -C $(HIGGS_ROOT) vallfpga
 	$(call invoke_c_override_submake)
+	@echo $(VERILATOR_C_OVERRIDE_DEFINES)
+	@echo $(VERILATOR_C_SUBMAKE_PATHS)
 
 gensigs:
 	@node ../../gensigs.js $(VER_FLAGS) $(VER_INCLUDE_DIRS) $(VERILATOR_TB_INCLUDE_DEFINES) $(EXTRA_VERILATOR_ARGS) $(VERILATOR_C_OVERRIDE_DEFINES) -PREFIX=../../
