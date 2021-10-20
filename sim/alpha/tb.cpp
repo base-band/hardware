@@ -41,6 +41,8 @@ int main(int argc, char** argv, char** env) {
     t->reset(40);
 
     postReset(top);
+
+    t->tick(2048);
     
     exit(0);
 }

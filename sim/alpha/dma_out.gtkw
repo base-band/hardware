@@ -1,0 +1,90 @@
+[*]
+[*] GTKWave Analyzer v3.3.86 (w)1999-2017 BSI
+[*] Tue Oct 19 20:30:21 2021
+[*]
+[dumpfile] "/mnt/overflow/work/base-band/bladerf/lib/hardware/sim/alpha/wave_dump.vcd"
+[dumpfile_mtime] "Tue Oct 19 20:28:43 2021"
+[dumpfile_size] 7276866
+[savefile] "/mnt/overflow/work/base-band/bladerf/lib/hardware/sim/alpha/dma_out.gtkw"
+[timestart] 1
+[size] 2560 1350
+[pos] -1 -1
+*-9.684120 2512 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] TOP.
+[treeopen] TOP.tb_higgs_top.
+[treeopen] TOP.tb_higgs_top.cs22_top.
+[treeopen] TOP.tb_higgs_top.cs22_top.core_top.
+[treeopen] TOP.tb_higgs_top.cs22_top.vex_machine_top_inst.
+[treeopen] TOP.tb_higgs_top.cs22_top.vex_machine_top_inst.q_engine_inst.
+[treeopen] TOP.tb_higgs_top.cs22_top.vex_machine_top_inst.q_engine_inst.VexRiscv.
+[treeopen] TOP.tb_higgs_top.cs22_top.vex_machine_top_inst.q_engine_inst.VexRiscv.VexRiscv.
+[sst_width] 437
+[signals_width] 495
+[sst_expanded] 1
+[sst_vpaned_height] 958
+@28
+TOP.clk
+@200
+---- Port 30000 ---
+@22
+TOP.tx_turnstile_data_in[31:0]
+@28
+TOP.tx_turnstile_data_valid
+@200
+---- Port 20000 ---
+@22
+TOP.ringbus_in_data[31:0]
+@28
+TOP.ringbus_in_data_vld
+@200
+---- Port 10000 ---
+@22
+TOP.ringbus_out_data[31:0]
+@28
+TOP.ringbus_out_data_vld
+@200
+---- Eth: FPGA ---
+---- Eth: PC ---
+---- Eth: REGS ---
+---- ETH: DMA in---
+---- ETH: DMA out---
+---- CS20: PC---
+---- CS10: PC---
+---- CS30 OUT ---
+---- CS30 IN ---
+---- CS20 IN ---
+---- CS20 OUT ---
+---- CS10 IN ---
+---- CS10 OUT ---
+---- ADC OUT ---
+---- CS00 IN ---
+---- CS00 OUT ---
+---- CS01 OUT ---
+---- CS11 OUT ---
+---- CS21 IN ---
+---- CS21 OUT ---
+---- SLICER ---
+---- CS31 OUT ---
+---- CS30 OUT ---
+---- Rings ---
+---- Rings Eth ---
+---- Rings 20 ---
+---- Rings 10 ---
+---- Rings 00 ---
+---- Rings 01 ---
+---- Rings 11 ---
+---- Rings 21 ---
+---- Rings 31 ---
+---- Rings 30 ---
+@22
+TOP.tb_higgs_top.cs22_top.vex_machine_top_inst.q_engine_inst.VexRiscv.VexRiscv.iBus_cmd_payload_pc[31:0]
+@28
+TOP.tb_higgs_top.cs22_top.vex_machine_top_inst.q_engine_inst.VexRiscv.VexRiscv.iBus_cmd_ready
+TOP.tb_higgs_top.cs22_top.vex_machine_top_inst.q_engine_inst.VexRiscv.VexRiscv.iBus_cmd_valid
+TOP.tb_higgs_top.cs22_top.vex_machine_top_inst.q_engine_inst.VexRiscv.VexRiscv.iBus_rsp_error
+@22
+TOP.tb_higgs_top.cs22_top.vex_machine_top_inst.q_engine_inst.VexRiscv.VexRiscv.iBus_rsp_inst[31:0]
+@28
+TOP.tb_higgs_top.cs22_top.vex_machine_top_inst.q_engine_inst.VexRiscv.VexRiscv.iBus_rsp_ready
+[pattern_trace] 1
+[pattern_trace] 0

@@ -745,6 +745,8 @@ assign cs21_o_ringbus = 1'b1;
 assign cs20_o_ringbus = 1'b1;
 `endif
 
+`ifdef TB_USE_ETH
+
    eth_top #(.VERILATE (VERILATE),
             .SCALAR_MEM_0 (`ETH_SCALAR_0),
             .SCALAR_MEM_1 (`ETH_SCALAR_1),
@@ -833,7 +835,7 @@ assign cs20_o_ringbus = 1'b1;
          .ring_bus_i0_ready        (ring_bus_i0_ready)
 
          );
-
+`endif
 
 
    cfg_top #(.VERILATE (VERILATE))

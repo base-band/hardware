@@ -335,3 +335,10 @@ clean:
 
 # see https://www.gnu.org/software/make/manual/html_node/Special-Targets.html
 .SECONDARY: $(OBJS)
+
+# foo:
+# 	@echo $(OBJDIR)/$(PROJ_NAME).elf
+# 	@echo $(OBJDIR)/$(PROJ_NAME).hex
+# 	@echo $(OBJDIR)/$(PROJ_NAME).asm
+# 	@echo $(OBJDIR)/$(PROJ_NAME)_symbols.txt
+# 	@echo $(TMP_OUTPUT)/scalar0.mif

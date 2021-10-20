@@ -2057,9 +2057,9 @@ void handleMonitorRbDrop() {
     #endif
     #endif
 
-    if( f == "eth" ) {
-        return readVmemUnode(top->tb_higgs_top->eth_top->q_engine_inst->piston_inst->UNODE_NAME, start_dma, length);
-    }
+    // if( f == "eth" ) {
+    //     return readVmemUnode(top->tb_higgs_top->eth_top->q_engine_inst->piston_inst->UNODE_NAME, start_dma, length);
+    // }
 
     throw std::invalid_argument( std::string("readVmem() did not find fpga: ")+f );
     return {};
