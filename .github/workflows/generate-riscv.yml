@@ -1,0 +1,29 @@
+name: Generate Riscv using VexRiscv, archive
+on:
+  workflow_dispatch:
+  push:
+    branches: [ trunk ]
+    # Publish semver tags as releases.
+    tags: [ 'v*.*.*' ]
+
+jobs:
+  generate-riscv:
+    name: Generate Riscv
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/base-band/docker-images/vex-ci-build:latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
+      - name: check pwd
+        run: pwd
+      - name: check ls
+        run: ls
+      - name: make genriscv
+        run: make genriscv
+      - name: Archive
+        uses: actions/upload-artifact@v2
+        with:
+          name: xbb-hdl
+          path: hdl/riscv/hdl/generated/
