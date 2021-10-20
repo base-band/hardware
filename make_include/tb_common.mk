@@ -185,7 +185,7 @@ compilehex:
 run_only:
 	./obj_dir/$(VER_BINARY)
 
-runt: run
+runt: trun
 
 run: compile
 	./obj_dir/$(VER_BINARY)
