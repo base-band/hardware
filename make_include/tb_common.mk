@@ -283,26 +283,30 @@ include $(HW_ROOT)/make_include/verilator_vmem.mk
 
 
 
-all:
-	@echo $(RVS_ROOT)
-	@echo ""
-	@ls $(RVS_ROOT)
-	@ls $(RVS_ROOT)/inc
+# all:
+# 	@echo $(RVS_ROOT)
+# 	@echo ""
+# 	@ls $(RVS_ROOT)
+# 	@ls $(RVS_ROOT)/inc
 
-all2:
-	@ls $(RISCV_C_INC_PATH)
-# 	@cat $(CRT_STANDARD_PATH)
-# 	@cat $(LD_STANDARD_PATH)
-# LD_STANDARD_PATH
+# all2:
+# 	@ls $(RISCV_C_INC_PATH)
+# # 	@cat $(CRT_STANDARD_PATH)
+# # 	@cat $(LD_STANDARD_PATH)
+# # LD_STANDARD_PATH
 
-all3:
-	@echo $(BOARD_TB_TOP)
-	@echo $(VER_BINARY)
+# all3:
+# 	@echo $(BOARD_TB_TOP)
+# 	@echo $(VER_BINARY)
 
 
-all4:
-# 	@echo $(EXTRA_CPP_FILES)
-	@echo $(CPP_TB_FILES)
+# all4:
+# # 	@echo $(EXTRA_CPP_FILES)
+# 	@echo $(CPP_TB_FILES)
 
-foo:
-	@echo $(HIGGS_TEST_DIR)
+# foo:
+# 	@echo $(HIGGS_TEST_DIR)
+
+
+debug_ver_sources:
+	@echo $(VER_SOURCES) | tr " " "\n"
