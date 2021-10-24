@@ -1,2 +1,5 @@
 core
 
+# this will ignore
+#  sim/alpha/override/fpgas/cs/cs22/c/lib/rv-software/inc/dma.o
+/**/override/fpgas/**/*.o
