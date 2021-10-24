@@ -73,7 +73,7 @@ TB_USE_CS22=1
 # CS21_NO_RISCV=1
 # CS20_NO_RISCV=1
 
-EXTRA_CPP_FILES=$(RVS_ROOT)/inc/feedback_bus.c
+# EXTRA_CPP_FILES=$(RVS_ROOT)/inc/feedback_bus.c
 
 # Required to set this before including this file
 include $(HW_ROOT)/make_include/tb_common.mk
