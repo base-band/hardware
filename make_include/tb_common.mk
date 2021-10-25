@@ -308,3 +308,6 @@ include $(HW_ROOT)/make_include/verilator_vmem.mk
 
 debug_ver_sources:
 	@echo $(VER_SOURCES) | tr " " "\n"
+
+debug_hdl_include:
+	@echo $(VER_INCLUDE_DIRS) | tr " " "\n"
