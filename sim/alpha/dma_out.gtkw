@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.3.86 (w)1999-2017 BSI
-[*] Sun Oct 24 23:41:19 2021
+[*] Mon Oct 25 00:00:24 2021
 [*]
 [dumpfile] "/mnt/overflow/work/base-band/bladerf/lib/hardware/sim/alpha/wave_dump.vcd"
-[dumpfile_mtime] "Sun Oct 24 23:41:13 2021"
-[dumpfile_size] 7276866
+[dumpfile_mtime] "Sun Oct 24 23:58:27 2021"
+[dumpfile_size] 4966064
 [savefile] "/mnt/overflow/work/base-band/bladerf/lib/hardware/sim/alpha/dma_out.gtkw"
 [timestart] 1
-[size] 2560 1352
+[size] 2560 1400
 [pos] -1 -1
-*-8.684120 1781 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-9.684120 363 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] TOP.
 [treeopen] TOP.tb_higgs_top.
 [treeopen] TOP.tb_higgs_top.cs22_top.
@@ -20,7 +20,7 @@
 [sst_width] 437
 [signals_width] 495
 [sst_expanded] 1
-[sst_vpaned_height] 834
+[sst_vpaned_height] 868
 @28
 TOP.clk
 @200
@@ -47,24 +47,6 @@ TOP.ringbus_out_data_vld
 ---- Eth: REGS ---
 ---- ETH: DMA in---
 ---- ETH: DMA out---
----- CS20: PC---
----- CS10: PC---
----- CS30 OUT ---
----- CS30 IN ---
----- CS20 IN ---
----- CS20 OUT ---
----- CS10 IN ---
----- CS10 OUT ---
----- ADC OUT ---
----- CS00 IN ---
----- CS00 OUT ---
----- CS01 OUT ---
----- CS11 OUT ---
----- CS21 IN ---
----- CS21 OUT ---
----- SLICER ---
----- CS31 OUT ---
----- CS30 OUT ---
 ---- Rings ---
 ---- Rings Eth ---
 ---- Rings 20 ---
@@ -88,9 +70,7 @@ TOP.tb_higgs_top.cs22_top.vex_machine_top_inst.riscv_in_valid
 TOP.tb_higgs_top.cs22_top.vex_machine_top_inst.riscv_out_data[31:0]
 @28
 TOP.tb_higgs_top.cs22_top.vex_machine_top_inst.riscv_out_last
-@29
 TOP.tb_higgs_top.cs22_top.vex_machine_top_inst.riscv_out_ready
-@28
 TOP.tb_higgs_top.cs22_top.vex_machine_top_inst.riscv_out_valid
 @22
 TOP.tb_higgs_top.cs22_top.vex_machine_top_inst.q_engine_inst.VexRiscv.VexRiscv.iBus_cmd_payload_pc[31:0]
@@ -102,5 +82,9 @@ TOP.tb_higgs_top.cs22_top.vex_machine_top_inst.q_engine_inst.VexRiscv.VexRiscv.i
 TOP.tb_higgs_top.cs22_top.vex_machine_top_inst.q_engine_inst.VexRiscv.VexRiscv.iBus_rsp_inst[31:0]
 @28
 TOP.tb_higgs_top.cs22_top.vex_machine_top_inst.q_engine_inst.VexRiscv.VexRiscv.iBus_rsp_ready
+@200
+---- Blade? ---
+@28
+TOP.tb_higgs_top.is_blade
 [pattern_trace] 1
 [pattern_trace] 0
