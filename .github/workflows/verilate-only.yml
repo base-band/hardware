@@ -21,5 +21,5 @@ jobs:
       - name: check
         run: ls
       - name: Verilate
-        run: cd lib/hardware/sim/alpha && make verilate
+        run: cd sim/alpha && make verilate
 
