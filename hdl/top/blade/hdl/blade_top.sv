@@ -130,7 +130,7 @@ module blade_top #(
          .NUM_SYS_CLK_SRSTS                  (NUM_SYS_CLK_RESETS),
          .SYS_CLK_SRSTS_EXTRA_CLOCKS         (SYS_CLK_RESETS_EXTRA_CLOCKS),
          .NUM_MIB_CLK_SRSTS                  (1),
-         .MIB_CLK_SRSTS_EXTRA_CLOCKS         (1'b0),
+         // .MIB_CLK_SRSTS_EXTRA_CLOCKS         (1'b0),
          .INT_OSC_DIV_VAL                    (12),
          .NUM_INT_OSC_SRST_CLOCKS            (128),
          .MIB_SLAVE_ADDR_MSN                 (SLAVE_MIB_ADDR_MSN),
@@ -156,8 +156,8 @@ module blade_top #(
          .cmd_sys             (cmd_sys)
       );
 
-       logic [21:0] gpio;
-       assign FPGA_LED = gpio[21];
+       // logic [21:0] gpio;
+       // assign FPGA_LED = gpio[21];
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -221,7 +221,7 @@ module blade_top #(
 `endif
 
 
-            .gpio                               (gpio)
+            // .gpio                               (gpio)
       );
 
 endmodule
