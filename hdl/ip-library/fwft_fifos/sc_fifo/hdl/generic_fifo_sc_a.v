@@ -181,13 +181,13 @@ module generic_fifo_sc_a(clk, rst, clr, din, we, dout, re,
    wire [aw-1:0]          wp_pl2;
    reg [aw-1:0]           rp;
    wire [aw-1:0]          rp_pl1;
-   reg                    full_r;
-   reg                    empty_r;
+   // reg                    full_r;
+   // reg                    empty_r;
    reg                    gb;
    reg                    gb2;
    reg [aw:0]             cnt;
-   wire                   full_n, empty_n;
-   reg                    full_n_r, empty_n_r;
+   // wire                   full_n, empty_n;
+   // reg                    full_n_r, empty_n_r;
 
    ////////////////////////////////////////////////////////////////////
    //
