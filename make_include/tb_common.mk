@@ -40,8 +40,6 @@ VER_INCLUDE_DIRS=\
 -I$(VER_CPP_INCLUDE_PATH) \
 $(BOARD_INCLUDE_PATHS)
 
-VER_TOP=--top-module $(BOARD_TB_TOP) +define+VERILATE +define+VERILATE_DEF +define+LOAD_VMEM
-
 # -I$(HIGGS_ROOT)/fpgas/packages \
 # -I$(HIGGS_ROOT)/fpgas/common/modules/eb2a \
 # -I$(IP_LIBRARY_REPO)/lattice_support/gbit_mac/packages
