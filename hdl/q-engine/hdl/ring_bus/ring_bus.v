@@ -289,9 +289,10 @@ module ring_bus
 
 
   // output serial bus mux
-  always @(posedge i_sysclk or posedge i_srst)
-    if (1'b1 == i_srst || code_rst == 1'b1) o_serial_bus <= 1'b1;
-    else o_serial_bus <= data_out;
+  // always @(posedge i_sysclk or posedge i_srst) begin
+  //   if (1'b1 == i_srst || code_rst == 1'b1) o_serial_bus <= 1'b1;
+  //   else o_serial_bus <= data_out;
+  // end
 
 
   // latch the *clear flag* signal

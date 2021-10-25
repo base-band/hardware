@@ -24,7 +24,7 @@ module core_top #(
     parameter int       NUM_SYS_CLK_SRSTS                                  = 1,      // sets the number of system clock synchronous reset created (the only reason to do this is if you want to release different modules from reset at different times)
     parameter int       SYS_CLK_SRSTS_EXTRA_CLOCKS [0:NUM_SYS_CLK_SRSTS-1] = {NUM_SYS_CLK_SRSTS{1'b0}},   // use this to specify how many extra system clocks to hold each system clock synchronous reset after the FPGA external reset (from pin) is released.  This allows different modules to be brought out of reset at different times.
     parameter int       NUM_MIB_CLK_SRSTS                                  = 1,      // same as NUM_SYS_CLK_SRSTS, but for MIB bus clock domain (probably will only ever need 1).
-    parameter int       MIB_CLK_SRSTS_EXTRA_CLOCKS [0:NUM_MIB_CLK_SRSTS-1] = {NUM_SYS_CLK_SRSTS{1'b0}}, // same as SYS_CLK_SRSTS_EXTRA_CLOCKS, but for MIB bus clock domain (probably won't ever need to change from default).
+    // parameter int       MIB_CLK_SRSTS_EXTRA_CLOCKS [0:NUM_MIB_CLK_SRSTS-1] = {NUM_SYS_CLK_SRSTS{1'b0}}, // same as SYS_CLK_SRSTS_EXTRA_CLOCKS, but for MIB bus clock domain (probably won't ever need to change from default).
     parameter int       INT_OSC_DIV_VAL                                    = 12,     // Divider value for Lattice FPGA internal oscillator (12 results in a 25.8MHz +/- 20% clock, see Lattice Documentation for more detail)
     parameter int       NUM_INT_OSC_SRST_CLOCKS                            = 128,    // number of internal oscillator clock cycles to assert o_int_osc_clk_srst for after FPGA configuration
     parameter bit [3:0] MIB_SLAVE_ADDR_MSN                                 = 4'h0,   // Set this to the MIB Most-Significant-Nibble used to uniquely identify the FPGA this module is in on the MIB bus
@@ -231,22 +231,22 @@ endgenerate
     			mib_rd_wr_n_in_reg <= i_mib_rd_wr_n;
     		end
 
-    		mib_slave #(
-    				.P_SLAVE_MIB_ADDR_MSN   (MIB_SLAVE_ADDR_MSN   ),
-    				.P_CMD_ACK_TIMEOUT_CLKS (CMD_MASTER_ACK_TIMEOUT_CLKS) // specified in udp_cmd_pkg.sv
-    			) mib_slave (
-    				.i_sysclk               (o_mib_clk          ), 
-    				.i_srst                 (o_mib_clk_srsts ),
-    				.cmd_master             (cmd_mib            ),
-    				.i_mib_start            (mib_start_in_reg   ),
-    				.i_mib_rd_wr_n          (mib_rd_wr_n_in_reg ),
-    				.o_mib_slave_ack        (mib_ack_int        ),
-    				.o_mib_slave_ack_high_z (mib_ack_int_high_z ),
-    				.o_mib_ad               (mib_ad_int         ),
-    				.i_mib_ad               (mib_ad_in_reg      ),
-    				.o_mib_ad_high_z        (mib_ad_int_high_z  )
+    		// mib_slave #(
+    		// 		.P_SLAVE_MIB_ADDR_MSN   (MIB_SLAVE_ADDR_MSN   ),
+    		// 		.P_CMD_ACK_TIMEOUT_CLKS (CMD_MASTER_ACK_TIMEOUT_CLKS) // specified in udp_cmd_pkg.sv
+    		// 	) mib_slave (
+    		// 		.i_sysclk               (o_mib_clk          ), 
+    		// 		.i_srst                 (o_mib_clk_srsts ),
+    		// 		.cmd_master             (cmd_mib            ),
+    		// 		.i_mib_start            (mib_start_in_reg   ),
+    		// 		.i_mib_rd_wr_n          (mib_rd_wr_n_in_reg ),
+    		// 		.o_mib_slave_ack        (mib_ack_int        ),
+    		// 		.o_mib_slave_ack_high_z (mib_ack_int_high_z ),
+    		// 		.o_mib_ad               (mib_ad_int         ),
+    		// 		.i_mib_ad               (mib_ad_in_reg      ),
+    		// 		.o_mib_ad_high_z        (mib_ad_int_high_z  )
     
-    			);
+    		// 	);
     
     		always_ff @(posedge o_mib_clk) begin
     			mib_ack_int_reg        <= mib_ack_int;
@@ -258,18 +258,18 @@ endgenerate
     		assign o_mib_slave_ack = (mib_ack_int_high_z_reg) ? 1'bz                    : mib_ack_int_reg;
     		assign b_mib_ad        = (mib_ad_int_high_z_reg)  ? 16'bzzzz_zzzz_zzzz_zzzz : mib_ad_int_reg;
 
-    		mib_cdc #(
-    				.ADDR_BITS (MIB_ADDR_BITS),
-    				.DATA_BITS (CMD_DATA_BITS),
-    				.SIM_MODE (0),
-    				.VERILATE (VERILATE)
-    			) mib_cdc (        
-    				.i_sys_clk  (o_sys_clk),
-    				.i_sys_srst (o_sys_clk_srsts),
-    				.i_mib_clk  (o_mib_clk),
-    				.i_mib_srst (o_mib_clk_srsts),
-    				.cmd_sys    (cmd_sys),
-    				.cmd_mib    (cmd_mib));
+    		// mib_cdc #(
+    		// 		.ADDR_BITS (MIB_ADDR_BITS),
+    		// 		.DATA_BITS (CMD_DATA_BITS),
+    		// 		.SIM_MODE (0),
+    		// 		.VERILATE (VERILATE)
+    		// 	) mib_cdc (        
+    		// 		.i_sys_clk  (o_sys_clk),
+    		// 		.i_sys_srst (o_sys_clk_srsts),
+    		// 		.i_mib_clk  (o_mib_clk),
+    		// 		.i_mib_srst (o_mib_clk_srsts),
+    		// 		.cmd_sys    (cmd_sys),
+    		// 		.cmd_mib    (cmd_mib));
                 
         end
             
