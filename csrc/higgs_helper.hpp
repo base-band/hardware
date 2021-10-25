@@ -968,6 +968,10 @@ public:
                     std::cout << serial->fpga << " Sent UART data: "
                               << HEX8_STRING( (uint32_t) serial->value) << "\n";
                 }
+                if( serial->print3 ) {
+                    std::cout << serial->fpga << " Sent UART data: "
+                              << (char)( (uint32_t) serial->value) << "\n";
+                }
                 serial->parser(serial->value);
                 serial->start_bit = 0;
                 serial->value = 0;
@@ -1493,12 +1497,14 @@ void handleMonitorRbDrop() {
     ringbusout->control_ready = 1;
     this->outs.insert(std::make_pair("ringbusout", ringbusout));
 
+#ifdef OLD_HIGGS
     SerialParser* eth_serial = new SerialParser();
     eth_serial->line_in = &(top->snap_eth_io_uart_rxd);
     eth_serial->line_out = &(top->snap_eth_io_uart_txd);
     eth_serial->fpga = "eth";
     eth_serial->enable = false;
     this->uarts.insert(std::make_pair("eth", eth_serial));
+#endif
 
     auto _read_vmem = [&](const std::string a, const unsigned b, const unsigned c) { return readVmem(a,b,c);};
     auto _read_imem = [&](const std::string a, const unsigned b, const unsigned c) { return readImemWords(a,b,c);};
@@ -1613,24 +1619,6 @@ void handleMonitorRbDrop() {
     this->uarts.insert(std::make_pair("cs01", cs01_serial));
     #endif
 
-    #ifdef TB_USE_CS32
-
-    Port32Out* cs32out = new Port32Out();
-    cs32out->i_data = &(top->snap_cs32_riscv_out_data);
-    cs32out->i_valid = &(top->snap_cs32_riscv_out_valid);
-    cs32out->i_ready = &(top->snap_cs32_riscv_out_ready);
-    cs32out->control_ready = 0; // tb does not control ready
-    this->outs.insert(std::make_pair("cs32out", cs32out));
-
-    this->vexs.insert(std::make_pair("cs32",RING_ENUM_CS32));
-    SerialParser* cs32_serial = new SerialParser();
-    cs32_serial->line_in = &(top->snap_cs32_io_uart_rxd);
-    cs32_serial->line_out = &(top->snap_cs32_io_uart_txd);
-    cs32_serial->fpga = "cs32";
-    cs32_serial->get_vmem_data = _read_vmem;
-    cs32_serial->get_imem_data = _read_imem;
-    this->uarts.insert(std::make_pair("cs32", cs32_serial));
-    #endif
 
     #ifdef TB_USE_CS22
 
@@ -1662,127 +1650,6 @@ void handleMonitorRbDrop() {
 
     #endif
 
-    #ifdef TB_USE_CS21
-    // 6
-    Port32Out* cs21out = new Port32Out();
-    cs21out->i_data = &(top->snap_cs21_riscv_out_data);
-    cs21out->i_valid = &(top->snap_cs21_riscv_out_valid);
-    cs21out->i_ready = &(top->snap_cs21_riscv_out_ready);
-    cs21out->control_ready = 0; // tb does not control ready
-    this->outs.insert(std::make_pair("cs21out", cs21out));
-
-    this->vexs.insert(std::make_pair("cs21",RING_ENUM_CS21));
-    SerialParser* cs21_serial = new SerialParser();
-    cs21_serial->line_in = &(top->snap_cs21_io_uart_rxd);
-    cs21_serial->line_out = &(top->snap_cs21_io_uart_txd);
-    cs21_serial->fpga = "cs21";
-    cs21_serial->get_vmem_data = _read_vmem;
-    cs21_serial->get_imem_data = _read_imem;
-    this->uarts.insert(std::make_pair("cs21", cs21_serial));
-
-    // if 21 is present AND 22 has no riscv, tb can drive this interface
-    #ifdef CS22_NO_RISCV
-    Port32In* cs21in = new Port32In();
-    cs21in->t_data = &(top->inject_cs21_riscv_in_data);
-    cs21in->t_valid = &(top->inject_cs21_riscv_in_valid);
-    cs21in->t_ready = &(top->inject_cs21_riscv_in_ready);
-    cs21in->drive_port = true;
-    cs21in->respect_ready = true;
-    this->ins.insert(std::make_pair("cs21in", cs21in));
-    #endif
-
-
-    #endif
-
-    #ifdef TB_USE_CS20
-    Port32Out* cs20out = new Port32Out();
-    cs20out->i_data = &(top->snap_cs20_riscv_out_data);
-    cs20out->i_valid = &(top->snap_cs20_riscv_out_valid);
-    cs20out->i_ready = &(top->snap_cs20_riscv_out_ready);
-    cs20out->control_ready = 0; // tb does not control ready
-    this->outs.insert(std::make_pair("cs20out", cs20out));
-
-    this->vexs.insert(std::make_pair("cs20",RING_ENUM_CS20));
-    SerialParser* cs20_serial = new SerialParser();
-    cs20_serial->line_in = &(top->snap_cs20_io_uart_rxd);
-    cs20_serial->line_out = &(top->snap_cs20_io_uart_txd);
-    cs20_serial->fpga = "cs20";
-    cs20_serial->get_vmem_data = _read_vmem;
-    cs20_serial->get_imem_data = _read_imem;
-    this->uarts.insert(std::make_pair("cs20", cs20_serial));
-    #endif
-
-    #ifdef TB_USE_CS12
-    Port32Out* cs12out = new Port32Out();
-    cs12out->i_data = &(top->snap_cs12_riscv_out_data);
-    cs12out->i_valid = &(top->snap_cs12_riscv_out_valid);
-    cs12out->i_ready = &(top->snap_cs12_riscv_out_ready);
-    cs12out->control_ready = 0; // tb does not control ready
-    this->outs.insert(std::make_pair("cs12out", cs12out));
-
-    this->vexs.insert(std::make_pair("cs12",RING_ENUM_CS12));
-    SerialParser* cs12_serial = new SerialParser();
-    cs12_serial->line_in = &(top->snap_cs12_io_uart_rxd);
-    cs12_serial->line_out = &(top->snap_cs12_io_uart_txd);
-    cs12_serial->fpga = "cs12";
-    cs12_serial->get_vmem_data = _read_vmem;
-    cs12_serial->get_imem_data = _read_imem;
-    this->uarts.insert(std::make_pair("cs12", cs12_serial));
-    #endif
-
-    #ifdef TB_USE_CS02
-    Port32Out* cs02out = new Port32Out();
-    cs02out->i_data = &(top->snap_cs02_riscv_out_data);
-    cs02out->i_valid = &(top->snap_cs02_riscv_out_valid);
-    cs02out->i_ready = &(top->snap_cs02_riscv_out_ready);
-    cs02out->control_ready = 0; // tb does not control ready
-    this->outs.insert(std::make_pair("cs02out", cs02out));
-
-    this->vexs.insert(std::make_pair("cs02",RING_ENUM_CS02));
-    SerialParser* cs02_serial = new SerialParser();
-    cs02_serial->line_in = &(top->snap_cs02_io_uart_rxd);
-    cs02_serial->line_out = &(top->snap_cs02_io_uart_txd);
-    cs02_serial->fpga = "cs02";
-    cs02_serial->get_vmem_data = _read_vmem;
-    cs02_serial->get_imem_data = _read_imem;
-    this->uarts.insert(std::make_pair("cs02", cs02_serial));
-    #endif
-
-    #ifdef ETH_USE_MEGA_WRAPPER
-
-    Port8In* ethByteIn = new Port8In();
-    ethByteIn->t_data = &(top->MAC_RX_FIFODATA);
-    ethByteIn->t_valid = &(top->MAC_RX_WRITE);
-    ethByteIn->t_last_byte = &(top->MAC_RX_EOF);
-    ethByteIn->valid_meter = 0;
-    // ethByteIn->data.resize(1);
-    this->ins8.insert(std::make_pair("ethbytein", ethByteIn));
-
-
-    static unsigned int  dummy_mac_data = 0;
-    static unsigned char dummy_mac_valid = 0;
-    static unsigned char dummy_mac_ready = 0;
-    Port32Out* macout = new Port32Out();
-    macout->i_data = &(dummy_mac_data);
-    macout->i_valid = &(dummy_mac_valid);
-    macout->i_ready = &(dummy_mac_ready);
-    macout->control_ready = 0; // tb does not control ready
-    this->outs.insert(std::make_pair("macout", macout));
-
-
-    Port8Out* ethByteOut = new Port8Out();
-    ethByteOut->i_data      = &(top->MAC_TX_FIFODATA);
-    ethByteOut->i_valid     = &(top->MAC_TX_FIFOAVAIL);
-    ethByteOut->i_ready     = &(top->MAC_TX_MACREAD);
-    ethByteOut->i_last_byte = &(top->MAC_TX_FIFOEOF);
-    ethByteOut->i_last_byte_p = 0;
-    ethByteOut->control_ready = 1;
-    ethByteOut->random_ready = 0;
-    ethByteOut->data.resize(1);
-
-    this->outs8.insert(std::make_pair("ethbyteout", ethByteOut));
-
-    #endif
   }
 
   std::function<uint32_t(uint32_t)> readImemFunction(const std::string f) {

@@ -42,7 +42,18 @@ int main(int argc, char** argv, char** env) {
 
     postReset(top);
 
+    t->uarts["cs22"]->print = false;
+    t->uarts["cs22"]->print3 = true;
+    t->uarts["cs22"]->print_chars = false;
+    t->uarts["cs22"]->disable_parse = true;
+
     t->tick(2048);
+
+    t->tick(1024*10);
+
+
+    // auto x = t->uarts['cs22'];
+
     
     exit(0);
 }

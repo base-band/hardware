@@ -25,8 +25,10 @@ public:
   bool print_missing_callback = true;
   bool print = false;
   bool print2 = false;
+  bool print3 = false;
   bool print_chars = false;
   bool debug_printf = false;
+  bool disable_parse = false;
   std::vector<uint8_t> data;
   std::vector<uint8_t> print_history;
   constexpr static uint8_t max_valid_type = 8; // inclusive
@@ -569,6 +571,10 @@ public:
   void parser(uint8_t byte) {
 
     data.push_back(byte);
+
+    if( disable_parse ) {
+        return; // early exit
+    }
 
     if(_frame.size() > 0) {
       _frame.push_back(byte);
