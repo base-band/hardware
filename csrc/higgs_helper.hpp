@@ -1475,12 +1475,12 @@ void handleMonitorRbDrop() {
     }
 
   void initialize_ports(){
-      Port32Out* eth_rx = new Port32Out();
-      eth_rx->i_data = &(top->o_rx_data_eth);
-      eth_rx->i_valid = &(top->o_rx_valid_eth);
-      eth_rx->i_ready = &(top->i_rx_ready_eth);
-      eth_rx->control_ready = 1;
-      this->outs.insert(std::make_pair("ethout", eth_rx));
+    Port32Out* eth_rx = new Port32Out();
+    eth_rx->i_data = &(top->o_rx_data_eth);
+    eth_rx->i_valid = &(top->o_rx_valid_eth);
+    eth_rx->i_ready = &(top->i_rx_ready_eth);
+    eth_rx->control_ready = 1;
+    this->outs.insert(std::make_pair("ethout", eth_rx));
       
     Port32In* ringbusin = new Port32In();
     ringbusin->t_data = &(top->ringbus_in_data);
