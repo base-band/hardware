@@ -1510,9 +1510,6 @@ void handleMonitorRbDrop() {
     auto _read_imem = [&](const std::string a, const unsigned b, const unsigned c) { return readImemWords(a,b,c);};
 
 
-    #ifdef TB_USE_CS31
-
-    #ifndef TB_USE_ADC
     Port32In* cs31in = new Port32In();
     cs31in->t_data = &(top->adc_data_out);
     cs31in->t_valid = &(top->adc_data_out_valid);
@@ -1520,7 +1517,10 @@ void handleMonitorRbDrop() {
     cs31in->valid_meter = 4;
     cs31in->valid_state = 0;
     this->ins.insert(std::make_pair("cs31in", cs31in));
-    #endif
+    #ifdef TB_USE_CS31
+
+    // #ifndef TB_USE_ADC
+    // #endif
 
     Port32Out* cs31out = new Port32Out();
     cs31out->i_data = &(top->snap_cs31_riscv_out_data);

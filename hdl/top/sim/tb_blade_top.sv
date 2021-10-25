@@ -51,6 +51,11 @@ module tb_higgs_top
       output wire        snap_cs22_io_uart_rxd,
 `endif
 
+      // HIJACKED
+      input wire [31:0]  adc_data_out,
+      input wire         adc_data_out_valid,
+      output wire        adc_data_out_ready,
+
 
 
       output wire [31:0] snap_mapmov_in_data,
@@ -132,9 +137,9 @@ parameter VERILATE = 1'b1;
          .HS_WEST_IN                         (cs22_i_ready), // ready
          .HS_NORTH_IN_RB                     (cs12_o_ringbus), // i_ringbus
          .HS_SOUTH_OUT_RB                    (cs22_o_ringbus), // o_ringbus
-         .HS_SOUTH_IN                        ({cs32_o_data_vld,cs32_out_data}), // data valid + 32 bit data
-         .HS_SOUTH_IN_LAST                   (cs32_o_data_last),
-         .HS_SOUTH_OUT                       (cs32_i_ready),   // ready
+         .HS_SOUTH_IN                        ({adc_data_out_valid,adc_data_out}), // data valid + 32 bit data
+         .HS_SOUTH_IN_LAST                   (1'b0),
+         .HS_SOUTH_OUT                       (adc_data_out_ready),   // ready
 
          .snap_riscv_out_data                (snap_cs22_riscv_out_data),
          .snap_riscv_out_last                (snap_cs22_riscv_out_last),

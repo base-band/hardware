@@ -47,6 +47,10 @@ int main(int argc, char** argv, char** env) {
     t->uarts["cs22"]->print_chars = false;
     t->uarts["cs22"]->disable_parse = true;
 
+
+
+    t->inStreamAppend("cs31in", {0xffff0000, 0xffff1111, 0xffff2222});
+
     t->tick(2048);
 
     t->tick(1024*10);

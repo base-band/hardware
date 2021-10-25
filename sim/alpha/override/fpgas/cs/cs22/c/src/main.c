@@ -1,5 +1,6 @@
 // #define RUNONE
-#define RUNTWO
+#define RUNONEA
+// #define RUNTWO
 // #define RUNTHREE
 
 
@@ -23,6 +24,30 @@ int main(void)
     // }
 }
 #endif
+
+#ifdef RUNONEA
+#include "pass_fail.h"
+#include "dma.h"
+#include "vmem.h"
+
+VMEM_SECTION unsigned int test_buf[16] = {
+    0xf000e000,
+    0xf000e001,
+    0xf000e002,
+};
+
+VMEM_SECTION unsigned int consume_buf[64];
+
+int main(void)
+{
+    dma_in_set(VMEM_ROW_ADDRESS(consume_buf), 64);
+    dma_out_set(VMEM_ROW_ADDRESS(test_buf), 16);
+    // for(int i = 0; i < 1024; i++) {
+    //     *pass_fail_0 = i;
+    // }
+}
+#endif
+
 
 
 
