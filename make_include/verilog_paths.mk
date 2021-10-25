@@ -82,7 +82,6 @@ BOARD_TB_NO_TOP_VERILOG=\
 $(IP_LIBRARY_ROOT)/interfaces/cmd_interface/hdl/intf_cmd.sv \
 $(IP_LIBRARY_ROOT)/interfaces/cmd_interface/hdl/cmd_master_example.sv \
 $(IP_LIBRARY_ROOT)/interfaces/cmd_interface/hdl/cmd_slave_example.sv \
-$(HW_ROOT)/hdl/top/cfg/hdl/cfg_top.sv \
 $(HW_ROOT)/hdl/top/blade/hdl/blade_top.sv \
 $(IP_LIBRARY_ROOT)/common/core_top.sv \
 $(IP_LIBRARY_ROOT)/common/vex_machine_top.v \
@@ -94,6 +93,7 @@ $(IP_LIBRARY_ROOT)/eb2a/eb2a_ctrl.v \
 $(IP_LIBRARY_ROOT)/eb2a/eb2a_data.v \
 $(IP_LIBRARY_ROOT)/eb2a/eb2a.v \
 $(IP_LIBRARY_ROOT)/demapper/demapper.sv \
+# $(HW_ROOT)/hdl/top/cfg/hdl/cfg_top.sv \
 # $(IP_LIBRARY_ROOT)/width_convert/width_32_8.sv \
 # $(IP_LIBRARY_ROOT)/width_convert/width_8_32.sv \
 # $(IP_LIBRARY_ROOT)/common/q_engine_gutted.v \

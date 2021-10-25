@@ -64,14 +64,7 @@ module tb_higgs_top
 
       output wire [31:0] o_rx_data_eth,
       output wire        o_rx_valid_eth,
-      input wire         i_rx_ready_eth,
-
-      output             DAC_CTRL_SDIO, // technically an inout, but we currently don't support reads from DAC SIF
-      output             DAC_CTRL_SDENN,
-      output             DAC_CTRL_SCLK,
-      output             DAC_CTRL_RESETN
-
-        // only when we are not using the dac
+      input wire         i_rx_ready_eth
 
 
       );
@@ -161,18 +154,6 @@ parameter VERILATE = 1'b1;
 assign cs22_o_ringbus = 1'b1;
 
 `endif
-
-
-   cfg_top #(.VERILATE (VERILATE))
-       cfg_top (
-         .CFG_CLK          (clk),
-         .MIB_AD           (MIB_AD[20:17]),
-         .DAC_CTRL_SDIO    (DAC_CTRL_SDIO),
-         .DAC_CTRL_SDENN   (DAC_CTRL_SDENN),
-         .DAC_CTRL_SCLK    (DAC_CTRL_SCLK),
-         .DAC_CTRL_RESETN  (DAC_CTRL_RESETN)
-
-         );
 
 
 endmodule
