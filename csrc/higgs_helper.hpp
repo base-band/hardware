@@ -40,6 +40,8 @@
 
 #define BB_SINGLE_RISCV_NAME blade_top
 
+// #define OLD_HIGGS
+
 // #include "tb_ringbus.hpp"
 
 // since higgs_helper is providing everything, why not grab this
@@ -724,8 +726,9 @@ public:
     }
 
 
+#ifdef OLD_HIGGS
+    // watches cs01 output to dac
     void handleMonitorDacValid() {
-
         if( !monitor_dac_valid ) {
             return;
         }
@@ -755,6 +758,7 @@ public:
 
         dac_valid_p = dac_valid;
     }
+#endif
 
     // pass number of clock cycles to reset, must be even number and greater than 4
     void reset(unsigned count=40) {
@@ -1312,8 +1316,8 @@ void tickLow(void) {
     if(tfp) {tfp->dump(*main_time);}
     this->handleDataPos();
 
+    
     // watches cs01 output to dac
-    this->handleMonitorDacValid();
     this->handleMonitorRbDrop();
     check_us();
 }

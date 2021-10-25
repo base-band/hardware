@@ -82,31 +82,23 @@ BOARD_TB_NO_TOP_VERILOG=\
 $(IP_LIBRARY_ROOT)/interfaces/cmd_interface/hdl/intf_cmd.sv \
 $(IP_LIBRARY_ROOT)/interfaces/cmd_interface/hdl/cmd_master_example.sv \
 $(IP_LIBRARY_ROOT)/interfaces/cmd_interface/hdl/cmd_slave_example.sv \
-$(HW_ROOT)/hdl/top/cs22/hdl/cs22_top.sv \
-$(HW_ROOT)/hdl/top/eth/hdl/eth_top.sv \
 $(HW_ROOT)/hdl/top/cfg/hdl/cfg_top.sv \
 $(HW_ROOT)/hdl/top/blade/hdl/blade_top.sv \
 $(IP_LIBRARY_ROOT)/common/core_top.sv \
 $(IP_LIBRARY_ROOT)/common/vex_machine_top.v \
 $(IP_LIBRARY_ROOT)/common/vex_machine_top_gutted.v \
 $(IP_LIBRARY_ROOT)/common/vex_machine_top_d_engine.v \
-$(IP_LIBRARY_ROOT)/common/q_engine_gutted.v \
 $(IP_LIBRARY_ROOT)/common/core_reset.sv \
 $(IP_LIBRARY_ROOT)/common/cmd_cdc.sv \
 $(IP_LIBRARY_ROOT)/eb2a/eb2a_ctrl.v \
 $(IP_LIBRARY_ROOT)/eb2a/eb2a_data.v \
 $(IP_LIBRARY_ROOT)/eb2a/eb2a.v \
-$(IP_LIBRARY_ROOT)/fb_eq_join/rtl/fb_eq_join.sv \
-$(IP_LIBRARY_ROOT)/fb_eq_split/rtl/fb_eq_split.sv \
-$(IP_LIBRARY_ROOT)/mapper_mover/mapper_mover.sv \
-$(IP_LIBRARY_ROOT)/mapper_mover/qam8_mapper.sv \
-$(IP_LIBRARY_ROOT)/mapper_mover/qam16_mapper.sv \
-$(IP_LIBRARY_ROOT)/mapper_mover/qam32_mapper.sv \
-$(IP_LIBRARY_ROOT)/mapper_mover/qam64_mapper.sv \
-$(IP_LIBRARY_ROOT)/mapper_mover/mapper_memory.sv \
 $(IP_LIBRARY_ROOT)/demapper/demapper.sv \
-$(IP_LIBRARY_ROOT)/width_convert/width_32_8.sv \
-$(IP_LIBRARY_ROOT)/width_convert/width_8_32.sv \
+# $(IP_LIBRARY_ROOT)/width_convert/width_32_8.sv \
+# $(IP_LIBRARY_ROOT)/width_convert/width_8_32.sv \
+# $(IP_LIBRARY_ROOT)/common/q_engine_gutted.v \
+# $(HW_ROOT)/hdl/top/cs22/hdl/cs22_top.sv \
+# $(HW_ROOT)/hdl/top/eth/hdl/eth_top.sv \
 # $(IP_LIBRARY_ROOT)/off_board/half_cdc.sv \
 # $(HIGGS_ROOT)/fpgas/grav/eth/hdl/eth_mega_wrapper.sv \
 # $(HIGGS_ROOT)/fpgas/grav/eth/hdl/fifo_cdc.sv \
