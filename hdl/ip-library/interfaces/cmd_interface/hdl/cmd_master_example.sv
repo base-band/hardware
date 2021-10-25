@@ -42,7 +42,7 @@ module cmd_master #(
     
     genvar i;
     generate
-        for (i=0; i<CMD_SLAVES; i++) begin
+        for (i=0; i<CMD_SLAVES; i++) begin : generate_tie_loop
             assign cmd[i].sel       = cmd_sel[i];
             assign cmd[i].rd_wr_n   = cmd_rd_wr_n;
             assign cmd[i].byte_addr = cmd_byte_addr;

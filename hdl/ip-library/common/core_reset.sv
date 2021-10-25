@@ -70,8 +70,8 @@ module core_reset #(
                 
                 assign o_sync_resets = sync_resets;
     `else 
+        genvar idx;
         generate
-            genvar idx;
 
 
                 
@@ -79,7 +79,7 @@ module core_reset #(
             logic       reset_holds [0:NUM_OUTPUTS-1];
             int         delay_cnts  [0:NUM_OUTPUTS-1]; 
 
-            for (idx=0; idx < NUM_OUTPUTS; idx++) begin
+            for (idx=0; idx < NUM_OUTPUTS; idx++) begin : generate_reset_loop
 
                 always_ff @(posedge i_clk or posedge i_ext_arst) begin
                     if (i_ext_arst) begin
