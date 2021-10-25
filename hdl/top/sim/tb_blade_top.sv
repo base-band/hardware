@@ -132,14 +132,20 @@ parameter VERILATE = 1'b1;
       blade_top (
          .CLK                                (clk),
          .FPGA_LED                           (),
-         .HS_WEST_OUT                        ({o_rx_valid_eth,o_rx_data_eth}), // data valid + 32 bit data
-         .HS_WEST_OUT_LAST                   (),
-         .HS_WEST_IN                         (i_rx_ready_eth), // ready
+         
+          // input
+         .t0_data                            (adc_data_out),
+         .t0_valid                           (adc_data_out_valid),
+         .t0_ready                           (adc_data_out_ready),   // ready
+         .t0_last                            (1'b0),
+
+          // output
+         .i0_data                            (o_rx_data_eth),
+         .i0_valid                           (o_rx_valid_eth),
+         .i0_ready                           (i_rx_ready_eth), // ready
+         .i0_last                            (),
          .HS_NORTH_IN_RB                     (cs12_o_ringbus), // i_ringbus
          .HS_SOUTH_OUT_RB                    (cs22_o_ringbus), // o_ringbus
-         .HS_SOUTH_IN                        ({adc_data_out_valid,adc_data_out}), // data valid + 32 bit data
-         .HS_SOUTH_IN_LAST                   (1'b0),
-         .HS_SOUTH_OUT                       (adc_data_out_ready),   // ready
 
          .snap_riscv_out_data                (snap_cs22_riscv_out_data),
          .snap_riscv_out_last                (snap_cs22_riscv_out_last),

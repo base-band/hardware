@@ -30,13 +30,16 @@ module blade_top #(
     input wire          CLK,
     output wire         FPGA_LED,
 
-    input wire [34:2]   HS_SOUTH_IN, // 34 = valid, 33:2 = data
-    output wire [35:35] HS_SOUTH_OUT, // ready
-    input wire [36:36]  HS_SOUTH_IN_LAST,
+    input wire [31:0]     t0_data,
+    input wire            t0_valid,
+    output wire           t0_ready,
+    input wire            t0_last,
 
-    output wire [34:2]  HS_WEST_OUT, // 34 = valid, 33:2 = data
-    input wire [35:35]  HS_WEST_IN, // ready
-    output wire [36:36] HS_WEST_OUT_LAST,
+    output wire [31:0]    i0_data,
+    output wire           i0_valid,
+
+    input wire            i0_ready,
+    output wire           i0_last,
     // wire [47:0] HS_NORTH,
     // wire [47:0] HS_EAST,
     // wire [47:0] HS_SOUTH,
@@ -193,14 +196,14 @@ module blade_top #(
          .reset                        (sys_clk_srst),
          .debugReset                   (sys_clk_srst),
 
-         .t0_data                   (HS_SOUTH_IN[33:2]),
-                            .t0_last(HS_SOUTH_IN_LAST[36:36]),
-         .t0_valid                     (HS_SOUTH_IN[34]),
-         .t0_ready                     (HS_SOUTH_OUT[35]),
-         .i0_data                   (HS_WEST_OUT[33:2]),
-                            .i0_last(HS_WEST_OUT_LAST[36:36]),
-         .i0_valid                     (HS_WEST_OUT[34]),
-         .i0_ready                     (HS_WEST_IN[35]),
+         .t0_data                      (t0_data),
+         .t0_last                      (t0_last),
+         .t0_valid                     (t0_valid),
+         .t0_ready                     (t0_ready),
+         .i0_data                      (i0_data),
+                            .i0_last(i0_last),
+         .i0_valid                     (i0_valid),
+         .i0_ready                     (i0_ready),
          .i_ringbus                    (HS_NORTH_IN_RB[47]),
          .o_ringbus                    (HS_SOUTH_OUT_RB[47]),
 
