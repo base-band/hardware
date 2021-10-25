@@ -38,6 +38,8 @@
 #include "CmdRunner.hpp"
 #include "random.h"
 
+#define BB_SINGLE_RISCV_NAME blade_top
+
 // #include "tb_ringbus.hpp"
 
 // since higgs_helper is providing everything, why not grab this
@@ -182,7 +184,7 @@ struct PC_functor
 #endif
 #ifdef TB_USE_CS22
           case RING_ENUM_CS22:
-              return top->tb_higgs_top->cs22_top->vex_machine_top_inst->q_engine_inst->get_iBus_cmd_payload_pc();
+              return top->tb_higgs_top->BB_SINGLE_RISCV_NAME->vex_machine_top_inst->q_engine_inst->get_iBus_cmd_payload_pc();
               break;
 #endif 
 #ifdef TB_USE_CS21
@@ -1834,7 +1836,7 @@ void handleMonitorRbDrop() {
     #ifdef TB_USE_CS22
     #ifndef CS22_NO_RISCV
     if( f == "cs22" ) {
-        return [&](uint32_t x){return top->tb_higgs_top->cs22_top->vex_machine_top_inst->q_engine_inst->mem->get_imem(x);};
+        return [&](uint32_t x){return top->tb_higgs_top->BB_SINGLE_RISCV_NAME->vex_machine_top_inst->q_engine_inst->mem->get_imem(x);};
     }
     #endif
     #endif
@@ -1919,7 +1921,7 @@ void handleMonitorRbDrop() {
         #ifdef TB_USE_CS22
         #ifndef CS22_NO_RISCV
         if( f == "cs22" ) {
-            return [&](const uint32_t a, const uint32_t d){return top->tb_higgs_top->cs22_top->vex_machine_top_inst->q_engine_inst->mem->set_imem(a,d);};
+            return [&](const uint32_t a, const uint32_t d){return top->tb_higgs_top->BB_SINGLE_RISCV_NAME->vex_machine_top_inst->q_engine_inst->mem->set_imem(a,d);};
         }
         #endif
         #endif
@@ -2034,7 +2036,7 @@ void handleMonitorRbDrop() {
     #ifdef TB_USE_CS22
     #ifndef CS22_NO_RISCV
     if( f == "cs22" ) {
-        return readVmemUnode(top->tb_higgs_top->cs22_top->vex_machine_top_inst->q_engine_inst->piston_inst->UNODE_NAME, start_dma, length);
+        return readVmemUnode(top->tb_higgs_top->BB_SINGLE_RISCV_NAME->vex_machine_top_inst->q_engine_inst->piston_inst->UNODE_NAME, start_dma, length);
     }
     #endif
     #endif

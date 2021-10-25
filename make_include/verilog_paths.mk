@@ -75,7 +75,7 @@ $(DATAPATH_ROOT)/hdl/muladdsub.v
 
 
 BOARD_TB_TOP_ONLY=\
-$(HW_ROOT)/hdl/top/sim/tb_higgs_top.sv
+$(HW_ROOT)/hdl/top/sim/tb_blade_top.sv
 
 # use this when you want to include your own top when using higgs
 BOARD_TB_NO_TOP_VERILOG=\
@@ -85,6 +85,7 @@ $(IP_LIBRARY_ROOT)/interfaces/cmd_interface/hdl/cmd_slave_example.sv \
 $(HW_ROOT)/hdl/top/cs22/hdl/cs22_top.sv \
 $(HW_ROOT)/hdl/top/eth/hdl/eth_top.sv \
 $(HW_ROOT)/hdl/top/cfg/hdl/cfg_top.sv \
+$(HW_ROOT)/hdl/top/blade/hdl/blade_top.sv \
 $(IP_LIBRARY_ROOT)/common/core_top.sv \
 $(IP_LIBRARY_ROOT)/common/vex_machine_top.v \
 $(IP_LIBRARY_ROOT)/common/vex_machine_top_gutted.v \
